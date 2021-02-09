@@ -28,7 +28,15 @@ app.use(denylist);
 // Add static assets
 //
 app.use(requestLogger);
-app.use(cors());
+var corsOptions = {
+   'allowedHeaders': ['authorization', 'Content-Type'],
+   'exposedHeaders': ['sessionId'],
+   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+   'preflightContinue': false,
+    origin:'*',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
+app.use(cors(corsOptions));
 app.use(app.routes);
 app.use(compression());
 app.use(express.static(__dirname + '/public'));
