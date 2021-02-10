@@ -32,9 +32,9 @@ var corsOptions = {
    'allowedHeaders': ['authorization', 'Content-Type'],
    'exposedHeaders': ['sessionId'],
    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-   'preflightContinue': false,
-    origin:'*',
-    optionsSuccessStatus: 200 // For legacy browser support
+   'preflightContinue': true,
+   'origin':'*',
+   'optionsSuccessStatus': 200 // For legacy browser support
 }
 app.use(cors(corsOptions));
 app.use(app.routes);
